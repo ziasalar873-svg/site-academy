@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARHAD INSTITUTE OF INFORMATION AND TECHNOLOGY</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0f0a;
+            color: #e0e0e0;
+        }
+
+        /* ===== NAVIGATION BAR ===== */
+        nav {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #00ff41;
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            color: #00ff41;
+            font-size: 22px;
+            font-weight: bold;
+            text-shadow: 0 0 10px #00ff41;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            color: #00ff41;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s;
+            padding: 5px 10px;
+        }
+
+        nav ul li a:hover {
+            color: #000;
+            background: #00ff41;
+            border-radius: 5px;
+            text-shadow: none;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, #000000 0%, #0a3d0a 30%, #001a00 60%, #000000 100%);
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Matrix Rain Effect */
+        .hero::before {
+            content: "01 10 11 00 01 10 01 11 00 10 01 11 00 10 01 11 00 01 10 11 00 01 10 01";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: rgba(0, 255, 65, 0.1);
+            font-family: monospace;
+            font-size: 20px;
+            overflow: hidden;
+            animation: matrixRain 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes matrixRain {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            margin-bottom: 15px;
+            color: #00ff41;
+            text-shadow: 0 0 20px #00ff41, 0 0 40px #00ff41, 0 0 60px #00ff41;
+            letter-spacing: 2px;
+        }
+
+        .hero .sub-name {
+            font-size: 20px;
+            color: #00cc33;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+        }
+
+        .hero .slogan {
+            font-size: 24px;
+            color: #ffffff;
+            margin-bottom: 30px;
+            font-style: italic;
+            text-shadow: 0 0 10px #00ff41;
+        }
+
+        .btn {
+            display: inline-block;
+            background: transparent;
+            color: #00ff41;
+            padding: 15px 40px;
+            text-decoration: none;
+            border: 2px solid #00ff41;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            background: #00ff41;
+            color: #000;
+            box-shadow: 0 0 30px #00ff41;
+        }
+
+        /* ===== SECTION TITLES ===== */
+        section {
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: #00ff41;
+            margin-bottom: 40px;
+            text-shadow: 0 0 15px #00ff41;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 150px;
+            height: 3px;
+            background: #00ff41;
+            margin: 15px auto;
+            box-shadow: 0 0 10px #00ff41;
+        }
+
+        /* ===== COURSES SECTION ===== */
+        .courses {
+            background: #0d1a0d;
+        }
+
+        .course-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .course-card {
+            background: #111111;
+            padding: 35px 25px;
+            border: 2px solid #00ff41;
+            width: 320px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: #00ff41;
+            transition: all 0.5s;
+        }
+
+        .course-card:hover::before {
+            left: 100%;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 40px rgba(0, 255, 65, 0.3);
+            background: #0a1a0a;
+        }
+
+        .course-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .course-card h3 {
+            color: #00ff41;
+            font-size: 24px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px #00ff41;
+        }
+
+        .course-card p {
+            color: #cccccc;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .course-card .duration {
+            color: #00ff41;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 15px;
+        }
+
+        .course-card .fee {
+            color: #00cc33;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            background: #080f08;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 1.8;
+            color: #cccccc;
+        }
+
+        .about-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .highlights {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .highlight-item {
+            text-align: center;
+            color: #00ff41;
+        }
+
+        .highlight-number {
+            font-size: 40px;
+            font-weight: bold;
+            text-shadow: 0 0 20px #00ff41;
+        }
+
+        .highlight-text {
+            font-size: 16px;
+            color: #cccccc;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            background: #0d1a0d;
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            color: #cccccc;
+            line-height: 2;
+        }
+
+        .contact-info h3 {
+            color: #00ff41;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background: #111111;
+            border: 2px solid #00ff41;
+            color: #00ff41;
+            font-size: 16px;
+            font-family: monospace;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            box-shadow: 0 0 15px #00ff41;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #006600;
+        }
+
+        .contact-form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background: #00ff41;
+            color: #000;
+            padding: 15px 40px;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+
+        .contact-form button:hover {
+            background: #00cc33;
+            box-shadow: 0 0 30px #00ff41;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #000000;
+            color: #00ff41;
+            text-align: center;
+            padding: 25px;
+            border-top: 2px solid #00ff41;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .hero .slogan {
+                font-size: 18px;
+            }
+
+            .course-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVIGATION BAR ===== -->
+    <nav>
+        <div class="logo">[ SIIT ]</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>SARHAD INSTITUTE</h1>
+            <p class="sub-name">OF INFORMATION AND TECHNOLOGY</p>
+            <p class="slogan">"MAKE FUTURE WITH US"</p>
+            <a href="#courses" class="btn">Explore Courses</a>
+        </div>
+    </section>
+
+    <!-- ===== COURSES SECTION ===== -->
+    <section id="courses" class="courses">
+        <h2 class="section-title">🖥️ OUR COURSES</h2>
+        <div class="course-container">
+            
+            <!-- Web Development Card -->
+            <div class="course-card">
+                <div class="course-icon">🌐</div>
+                <h3>Web Development</h3>
+                <p>HTML, CSS, JavaScript, React, Node.js, PHP, MySQL</p>
+                <p>Full Stack Web Development ka complete course</p>
+                <p class="duration">⏱️ Duration: 6 Months</p>
+                <p class="fee">💰 Fee: Contact for Details</p>
+            </div>
+
+            <!-- Cyber Security Card -->
+            <div class="course-card">
+                <div class="course-icon">🔐</div>
+                <h3>Cyber Security</h3>
+                <p>Network Security, Ethical Hacking, Penetration Testing</p>
+                <p>Security Expert banne ka mukammal course</p>
+                <p class="duration">⏱️ Duration: 6 Months</p>
+                <p class="fee">💰 Fee: Contact for Details</p>
+            </div>
+
+            <!-- CCNA Networking Card -->
+            <div class="course-card">
+                <div class="course-icon">🌍</div>
+                <h3>CCNA Networking</h3>
+                <p>Routing, Switching, Network Configuration, Troubleshooting</p>
+                <p>Cisco Certified Network Associate training</p>
+                <p class="duration">⏱️ Duration: 4 Months</p>
+                <p class="fee">💰 Fee: Contact for Details</p>
+            </div>
+
+            <!-- AI Course Card -->
+            <div class="course-card">
+                <div class="course-icon">🤖</div>
+                <h3>Artificial Intelligence</h3>
+                <p>Machine Learning, Deep Learning, Python, TensorFlow</p>
+                <p>AI ke mustaqbil mein kadam rakhein</p>
+                <p class="duration">⏱️ Duration: 6 Months</p>
+                <p class="fee">💰 Fee: Contact for Details</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about" class="about">
+        <h2 class="section-title">ℹ️ ABOUT US</h2>
+        <div class="about-content">
+            <p>
+                <strong style="color: #00ff41;">SARHAD INSTITUTE OF INFORMATION AND TECHNOLOGY</strong> 
+                Swabi ka ek mumtaz IT training institute hai jo students ko latest technology 
+                skills seekhne ka behtareen mauqa faraham karta hai.
+            </p>
+            <p>
+                Hamara maqsad students ko aisi practical skills dena hai jo unhein 
+                IT industry mein kamyab banayein. Hamare experienced instructors 
+                students ki rehnumai karte hain.
+            </p>
+        </div>
+
+        <div class="highlights">
+            <div class="highlight-item">
+                <div class="highlight-number">10+</div>
+                <div class="highlight-text">Experienced Teachers</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-number">500+</div>
+                <div class="highlight-text">Successful Students</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-number">4</div>
+                <div class="highlight-text">Professional Courses</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-number">100%</div>
+                <div class="highlight-text">Practical Training</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">📞 CONTACT US</h2>
+        <div class="contact-container">
+            
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <h3>📍 Get In Touch</h3>
+                <p><strong style="color: #00ff41;">🏫 Institute:</strong> SARHAD INSTITUTE OF INFORMATION AND TECHNOLOGY</p>
+                <p><strong style="color: #00ff41;">📍 Location:</strong> Swabi, Khyber Pakhtunkhwa</p>
+                <p><strong style="color: #00ff41;">📞 Phone:</strong> +92 300 1234567</p>
+                <p><strong style="color: #00ff41;">📧 Email:</strong> info@siit.edu.pk</p>
+                <p><strong style="color: #00ff41;">🕐 Timings:</strong> Monday - Saturday, 9:00 AM - 6:00 PM</p>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <form>
+                    <input type="text" placeholder="Your Full Name" required>
+                    <input type="email" placeholder="Your Email Address" required>
+                    <input type="tel" placeholder="Your Phone Number">
+                    <textarea placeholder="Your Message..." required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>© 2024 SARHAD INSTITUTE OF INFORMATION AND TECHNOLOGY - SWABI</p>
+        <p>"MAKE FUTURE WITH US"</p>
+    </footer>
+
+</body>
+</html>
