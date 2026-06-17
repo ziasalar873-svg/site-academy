@@ -15,51 +15,91 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #0a0f0a;
             color: #e0e0e0;
+            display: flex;
         }
 
-        /* ===== NAVIGATION BAR ===== */
-        nav {
-            background: rgba(0, 0, 0, 0.9);
-            padding: 15px 20px;
-            position: sticky;
+        /* ===== LEFT SIDEBAR ===== */
+        .sidebar {
+            width: 280px;
+            height: 100vh;
+            background: #000000;
+            position: fixed;
             top: 0;
+            left: 0;
+            border-right: 2px solid #00ff41;
+            overflow-y: auto;
             z-index: 1000;
+        }
+
+        .sidebar-header {
+            text-align: center;
+            padding: 30px 15px;
             border-bottom: 2px solid #00ff41;
-            backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
+            background: #0a1a0a;
         }
 
-        .logo {
+        .sidebar-header h2 {
             color: #00ff41;
-            font-size: 22px;
-            font-weight: bold;
+            font-size: 20px;
             text-shadow: 0 0 10px #00ff41;
+            margin-bottom: 10px;
         }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-            flex-wrap: wrap;
+        .sidebar-header .logo-text {
+            color: #00cc33;
+            font-size: 12px;
+            letter-spacing: 2px;
         }
 
-        nav ul li a {
+        .sidebar-nav {
+            padding: 20px 0;
+        }
+
+        .sidebar-nav a {
+            display: block;
             color: #00ff41;
             text-decoration: none;
+            padding: 15px 25px;
             font-size: 16px;
             font-weight: bold;
             transition: all 0.3s;
-            padding: 5px 10px;
+            border-left: 3px solid transparent;
+            margin: 5px 0;
         }
 
-        nav ul li a:hover {
-            color: #000;
-            background: #00ff41;
-            border-radius: 5px;
-            text-shadow: none;
+        .sidebar-nav a:hover {
+            background: #0a2a0a;
+            border-left: 3px solid #00ff41;
+            color: #ffffff;
+            padding-left: 30px;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+        }
+
+        .sidebar-nav a.active {
+            background: #0a2a0a;
+            border-left: 3px solid #00ff41;
+            color: #ffffff;
+        }
+
+        .sidebar-footer {
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #00ff41;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: #000000;
+        }
+
+        .sidebar-footer p {
+            color: #00ff41;
+            font-size: 12px;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            margin-left: 280px;
+            width: calc(100% - 280px);
         }
 
         /* ===== HERO SECTION ===== */
@@ -67,91 +107,77 @@
             background: linear-gradient(135deg, #000000 0%, #0a3d0a 30%, #001a00 60%, #000000 100%);
             color: white;
             text-align: center;
-            padding: 120px 20px;
+            padding: 100px 20px;
             position: relative;
             overflow: hidden;
         }
 
-        /* Matrix Rain Effect */
         .hero::before {
-            content: "01 10 11 00 01 10 01 11 00 10 01 11 00 10 01 11 00 01 10 11 00 01 10 01";
+            content: "01 10 11 00 01 10 01 11 00 10 01 11 00 10 01 11 00 01 10 11";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            color: rgba(0, 255, 65, 0.1);
+            color: rgba(0, 255, 65, 0.08);
             font-family: monospace;
-            font-size: 20px;
+            font-size: 18px;
             overflow: hidden;
-            animation: matrixRain 20s linear infinite;
             pointer-events: none;
         }
 
-        @keyframes matrixRain {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100%); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
         .hero h1 {
-            font-size: 55px;
-            margin-bottom: 15px;
+            font-size: 48px;
             color: #00ff41;
-            text-shadow: 0 0 20px #00ff41, 0 0 40px #00ff41, 0 0 60px #00ff41;
-            letter-spacing: 2px;
+            text-shadow: 0 0 20px #00ff41;
+            margin-bottom: 10px;
+            position: relative;
         }
 
         .hero .sub-name {
-            font-size: 20px;
+            font-size: 18px;
             color: #00cc33;
-            margin-bottom: 10px;
             letter-spacing: 3px;
+            margin-bottom: 10px;
         }
 
         .hero .slogan {
-            font-size: 24px;
+            font-size: 22px;
             color: #ffffff;
-            margin-bottom: 30px;
             font-style: italic;
             text-shadow: 0 0 10px #00ff41;
+            margin-bottom: 25px;
         }
 
         .btn {
             display: inline-block;
             background: transparent;
             color: #00ff41;
-            padding: 15px 40px;
+            padding: 12px 35px;
             text-decoration: none;
             border: 2px solid #00ff41;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 16px;
             cursor: pointer;
             transition: all 0.3s;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            position: relative;
-            overflow: hidden;
+            letter-spacing: 1px;
         }
 
         .btn:hover {
             background: #00ff41;
             color: #000;
-            box-shadow: 0 0 30px #00ff41;
+            box-shadow: 0 0 25px #00ff41;
         }
 
-        /* ===== SECTION TITLES ===== */
+        /* ===== SECTION STYLES ===== */
         section {
-            padding: 60px 20px;
+            padding: 60px 40px;
         }
 
         .section-title {
             text-align: center;
-            font-size: 36px;
+            font-size: 32px;
             color: #00ff41;
             margin-bottom: 40px;
             text-shadow: 0 0 15px #00ff41;
@@ -161,11 +187,78 @@
         .section-title::after {
             content: '';
             display: block;
-            width: 150px;
+            width: 120px;
             height: 3px;
             background: #00ff41;
             margin: 15px auto;
             box-shadow: 0 0 10px #00ff41;
+        }
+
+        /* ===== INTRODUCTION SECTION ===== */
+        .introduction {
+            background: #080f08;
+        }
+
+        .intro-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1100px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .intro-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .intro-text h3 {
+            color: #00ff41;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text p {
+            color: #cccccc;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .intro-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .intro-features li {
+            color: #00ff41;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .intro-features li::before {
+            content: "▹ ";
+            color: #00ff41;
+        }
+
+        .intro-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .intro-image .image-placeholder {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, #0a1a0a, #001a00);
+            border: 2px solid #00ff41;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: #00ff41;
+            text-shadow: 0 0 20px #00ff41;
         }
 
         /* ===== COURSES SECTION ===== */
@@ -174,198 +267,221 @@
         }
 
         .course-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            max-width: 1200px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         .course-card {
             background: #111111;
-            padding: 35px 25px;
+            padding: 30px 20px;
             border: 2px solid #00ff41;
-            width: 320px;
             text-align: center;
             transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .course-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 2px;
-            background: #00ff41;
-            transition: all 0.5s;
-        }
-
-        .course-card:hover::before {
-            left: 100%;
         }
 
         .course-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 0 40px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
             background: #0a1a0a;
         }
 
         .course-icon {
-            font-size: 60px;
-            margin-bottom: 20px;
+            font-size: 50px;
+            margin-bottom: 15px;
         }
 
         .course-card h3 {
             color: #00ff41;
-            font-size: 24px;
-            margin-bottom: 15px;
-            text-shadow: 0 0 10px #00ff41;
+            font-size: 22px;
+            margin-bottom: 10px;
         }
 
         .course-card p {
             color: #cccccc;
-            margin: 10px 0;
+            font-size: 14px;
             line-height: 1.6;
         }
 
-        .course-card .duration {
-            color: #00ff41;
-            font-weight: bold;
-            font-size: 18px;
-            margin-top: 15px;
-        }
-
-        .course-card .fee {
-            color: #00cc33;
-            font-size: 20px;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        /* ===== ABOUT SECTION ===== */
-        .about {
+        /* ===== GALLERY SECTION ===== */
+        .gallery {
             background: #080f08;
         }
 
-        .about-content {
-            max-width: 800px;
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
             margin: 0 auto;
-            text-align: center;
-            line-height: 1.8;
-            color: #cccccc;
         }
 
-        .about-content p {
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-
-        .highlights {
+        .gallery-item {
+            height: 220px;
+            background: linear-gradient(135deg, #0a1a0a, #001a00);
+            border: 2px solid #00ff41;
             display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .highlight-item {
-            text-align: center;
+            font-size: 50px;
             color: #00ff41;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
 
-        .highlight-number {
-            font-size: 40px;
-            font-weight: bold;
-            text-shadow: 0 0 20px #00ff41;
+        .gallery-item:hover {
+            box-shadow: 0 0 25px rgba(0, 255, 65, 0.4);
+            transform: scale(1.05);
         }
 
-        .highlight-text {
-            font-size: 16px;
-            color: #cccccc;
+        .gallery-item .gallery-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: #00ff41;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
         }
 
-        /* ===== CONTACT SECTION ===== */
-        .contact {
+        /* ===== ADMISSION SECTION ===== */
+        .admission {
             background: #0d1a0d;
         }
 
-        .contact-container {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            max-width: 1000px;
+        .admission-form {
+            max-width: 700px;
             margin: 0 auto;
+            background: #111111;
+            padding: 40px;
+            border: 2px solid #00ff41;
         }
 
-        .contact-info {
-            color: #cccccc;
-            line-height: 2;
-        }
-
-        .contact-info h3 {
-            color: #00ff41;
+        .form-row {
+            display: flex;
+            gap: 20px;
             margin-bottom: 20px;
-            font-size: 22px;
+            flex-wrap: wrap;
         }
 
-        .contact-info p {
-            margin: 10px 0;
-        }
-
-        .contact-form {
+        .form-group {
             flex: 1;
-            min-width: 300px;
-            max-width: 500px;
+            min-width: 200px;
         }
 
-        .contact-form input,
-        .contact-form textarea {
+        .form-group label {
+            display: block;
+            color: #00ff41;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
             width: 100%;
             padding: 12px;
-            margin-bottom: 15px;
-            background: #111111;
+            background: #0a0a0a;
             border: 2px solid #00ff41;
             color: #00ff41;
-            font-size: 16px;
+            font-size: 14px;
             font-family: monospace;
         }
 
-        .contact-form input:focus,
-        .contact-form textarea:focus {
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
             outline: none;
             box-shadow: 0 0 15px #00ff41;
         }
 
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder {
-            color: #006600;
+        .form-group select {
+            color: #00ff41;
         }
 
-        .contact-form textarea {
-            height: 120px;
+        .form-group select option {
+            background: #111111;
+            color: #00ff41;
+        }
+
+        .form-group textarea {
+            height: 100px;
             resize: vertical;
         }
 
-        .contact-form button {
+        .submit-btn {
             background: #00ff41;
             color: #000;
-            padding: 15px 40px;
+            padding: 15px 50px;
             border: none;
             font-size: 18px;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
             text-transform: uppercase;
+            width: 100%;
         }
 
-        .contact-form button:hover {
+        .submit-btn:hover {
             background: #00cc33;
             box-shadow: 0 0 30px #00ff41;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            background: #080f08;
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            color: #00ff41;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 15px 0;
+            color: #cccccc;
+            font-size: 16px;
+        }
+
+        .contact-icon {
+            font-size: 24px;
+            color: #00ff41;
+        }
+
+        .contact-map {
+            flex: 1;
+            min-width: 300px;
+            height: 300px;
+            background: #0a1a0a;
+            border: 2px solid #00ff41;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00ff41;
+            font-size: 60px;
         }
 
         /* ===== FOOTER ===== */
@@ -373,34 +489,58 @@
             background: #000000;
             color: #00ff41;
             text-align: center;
-            padding: 25px;
+            padding: 20px;
             border-top: 2px solid #00ff41;
         }
 
-        footer p {
-            margin: 5px 0;
+        /* ===== SCROLLBAR STYLE ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
 
-        /* ===== RESPONSIVE DESIGN ===== */
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #00ff41;
+            border-radius: 4px;
+        }
+
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 15px;
+            .sidebar {
+                width: 200px;
             }
-
-            nav ul {
-                justify-content: center;
+            .main-content {
+                margin-left: 200px;
+                width: calc(100% - 200px);
             }
-
             .hero h1 {
-                font-size: 35px;
+                font-size: 30px;
             }
-
-            .hero .slogan {
-                font-size: 18px;
+            section {
+                padding: 40px 15px;
             }
+            .form-row {
+                flex-direction: column;
+            }
+        }
 
-            .course-card {
+        @media (max-width: 500px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+            .sidebar-footer {
+                position: relative;
+            }
+            .main-content {
+                margin-left: 0;
                 width: 100%;
             }
         }
@@ -408,146 +548,261 @@
 </head>
 <body>
 
-    <!-- ===== NAVIGATION BAR ===== -->
-    <nav>
-        <div class="logo">[ SIIT ]</div>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#courses">Courses</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <!-- ===== LEFT SIDEBAR ===== -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>SIIT</h2>
+            <p class="logo-text">SARHAD INSTITUTE OF<br>INFORMATION & TECHNOLOGY</p>
+        </div>
+        
+        <div class="sidebar-nav">
+            <a href="#intro" class="active">📋 Introduction</a>
+            <a href="#courses">💻 Courses</a>
+            <a href="#gallery">🖼️ Gallery</a>
+            <a href="#admission">📝 Admission</a>
+            <a href="#contact">📞 Contact</a>
+        </div>
 
-    <!-- ===== HERO SECTION ===== -->
-    <section id="home" class="hero">
-        <div class="hero-content">
+        <div class="sidebar-footer">
+            <p>© 2024 SIIT Swabi</p>
+        </div>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="main-content">
+
+        <!-- HERO SECTION -->
+        <section class="hero" id="home">
             <h1>SARHAD INSTITUTE</h1>
             <p class="sub-name">OF INFORMATION AND TECHNOLOGY</p>
             <p class="slogan">"MAKE FUTURE WITH US"</p>
-            <a href="#courses" class="btn">Explore Courses</a>
-        </div>
-    </section>
+            <a href="#admission" class="btn">Apply Now</a>
+        </section>
 
-    <!-- ===== COURSES SECTION ===== -->
-    <section id="courses" class="courses">
-        <h2 class="section-title">🖥️ OUR COURSES</h2>
-        <div class="course-container">
-            
-            <!-- Web Development Card -->
-            <div class="course-card">
-                <div class="course-icon">🌐</div>
-                <h3>Web Development</h3>
-                <p>HTML, CSS, JavaScript, React, Node.js, PHP, MySQL</p>
-                <p>Full Stack Web Development ka complete course</p>
-                <p class="duration">⏱️ Duration: 6 Months</p>
-                <p class="fee">💰 Fee: Contact for Details</p>
+        <!-- INTRODUCTION SECTION -->
+        <section class="introduction" id="intro">
+            <h2 class="section-title">📋 INTRODUCTION</h2>
+            <div class="intro-content">
+                <div class="intro-text">
+                    <h3>Welcome to SIIT Swabi</h3>
+                    <p>
+                        <strong style="color: #00ff41;">SARHAD INSTITUTE OF INFORMATION AND TECHNOLOGY</strong> 
+                        Swabi ka ek mumtaz IT training institute hai. Hum students ko latest technology 
+                        courses provide karte hain taake woh apna mustaqbil ujagar kar sakein.
+                    </p>
+                    <p>
+                        Hamara maqsad quality education ke zariye youth ko IT industry ke liye 
+                        tayyar karna hai. Experienced teachers aur practical training hamari pehchan hai.
+                    </p>
+                    <ul class="intro-features">
+                        <li>Professional & Experienced Teachers</li>
+                        <li>100% Practical Training</li>
+                        <li>Latest Technology Courses</li>
+                        <li>Affordable Fees Structure</li>
+                        <li>Job Placement Assistance</li>
+                    </ul>
+                </div>
+                <div class="intro-image">
+                    <div class="image-placeholder">
+                        🏫
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <!-- Cyber Security Card -->
-            <div class="course-card">
-                <div class="course-icon">🔐</div>
-                <h3>Cyber Security</h3>
-                <p>Network Security, Ethical Hacking, Penetration Testing</p>
-                <p>Security Expert banne ka mukammal course</p>
-                <p class="duration">⏱️ Duration: 6 Months</p>
-                <p class="fee">💰 Fee: Contact for Details</p>
-            </div>
+        <!-- COURSES SECTION -->
+        <section class="courses" id="courses">
+            <h2 class="section-title">💻 OUR COURSES</h2>
+            <div class="course-container">
+                
+                <div class="course-card">
+                    <div class="course-icon">🌐</div>
+                    <h3>Web Development</h3>
+                    <p>HTML, CSS, JavaScript, React, Node.js, PHP, MySQL</p>
+                    <p style="color: #00ff41; margin-top: 10px;">⏱️ Duration: 6 Months</p>
+                </div>
 
-            <!-- CCNA Networking Card -->
-            <div class="course-card">
-                <div class="course-icon">🌍</div>
-                <h3>CCNA Networking</h3>
-                <p>Routing, Switching, Network Configuration, Troubleshooting</p>
-                <p>Cisco Certified Network Associate training</p>
-                <p class="duration">⏱️ Duration: 4 Months</p>
-                <p class="fee">💰 Fee: Contact for Details</p>
-            </div>
+                <div class="course-card">
+                    <div class="course-icon">🔐</div>
+                    <h3>Cyber Security</h3>
+                    <p>Network Security, Ethical Hacking, Penetration Testing</p>
+                    <p style="color: #00ff41; margin-top: 10px;">⏱️ Duration: 6 Months</p>
+                </div>
 
-            <!-- AI Course Card -->
-            <div class="course-card">
-                <div class="course-icon">🤖</div>
-                <h3>Artificial Intelligence</h3>
-                <p>Machine Learning, Deep Learning, Python, TensorFlow</p>
-                <p>AI ke mustaqbil mein kadam rakhein</p>
-                <p class="duration">⏱️ Duration: 6 Months</p>
-                <p class="fee">💰 Fee: Contact for Details</p>
-            </div>
+                <div class="course-card">
+                    <div class="course-icon">🌍</div>
+                    <h3>CCNA Networking</h3>
+                    <p>Routing, Switching, Network Configuration</p>
+                    <p style="color: #00ff41; margin-top: 10px;">⏱️ Duration: 4 Months</p>
+                </div>
 
-        </div>
-    </section>
+                <div class="course-card">
+                    <div class="course-icon">🤖</div>
+                    <h3>Artificial Intelligence</h3>
+                    <p>Machine Learning, Deep Learning, Python, TensorFlow</p>
+                    <p style="color: #00ff41; margin-top: 10px;">⏱️ Duration: 6 Months</p>
+                </div>
 
-    <!-- ===== ABOUT SECTION ===== -->
-    <section id="about" class="about">
-        <h2 class="section-title">ℹ️ ABOUT US</h2>
-        <div class="about-content">
-            <p>
-                <strong style="color: #00ff41;">SARHAD INSTITUTE OF INFORMATION AND TECHNOLOGY</strong> 
-                Swabi ka ek mumtaz IT training institute hai jo students ko latest technology 
-                skills seekhne ka behtareen mauqa faraham karta hai.
-            </p>
-            <p>
-                Hamara maqsad students ko aisi practical skills dena hai jo unhein 
-                IT industry mein kamyab banayein. Hamare experienced instructors 
-                students ki rehnumai karte hain.
-            </p>
-        </div>
+            </div>
+        </section>
 
-        <div class="highlights">
-            <div class="highlight-item">
-                <div class="highlight-number">10+</div>
-                <div class="highlight-text">Experienced Teachers</div>
-            </div>
-            <div class="highlight-item">
-                <div class="highlight-number">500+</div>
-                <div class="highlight-text">Successful Students</div>
-            </div>
-            <div class="highlight-item">
-                <div class="highlight-number">4</div>
-                <div class="highlight-text">Professional Courses</div>
-            </div>
-            <div class="highlight-item">
-                <div class="highlight-number">100%</div>
-                <div class="highlight-text">Practical Training</div>
-            </div>
-        </div>
-    </section>
+        <!-- GALLERY SECTION -->
+        <section class="gallery" id="gallery">
+            <h2 class="section-title">🖼️ PICTURE GALLERY</h2>
+            <div class="gallery-container">
+                
+                <div class="gallery-item">
+                    🎓
+                    <span class="gallery-text">Certificate Distribution</span>
+                </div>
 
-    <!-- ===== CONTACT SECTION ===== -->
-    <section id="contact" class="contact">
-        <h2 class="section-title">📞 CONTACT US</h2>
-        <div class="contact-container">
-            
-            <!-- Contact Info -->
-            <div class="contact-info">
-                <h3>📍 Get In Touch</h3>
-                <p><strong style="color: #00ff41;">🏫 Institute:</strong> SARHAD INSTITUTE OF INFORMATION AND TECHNOLOGY</p>
-                <p><strong style="color: #00ff41;">📍 Location:</strong> Swabi, Khyber Pakhtunkhwa</p>
-                <p><strong style="color: #00ff41;">📞 Phone:</strong> +92 332 9094490</p>p>
-        
-                <p><strong style="color: #00ff41;">📧 Email:</strong> info@siit.edu.pk</p>
-                <p><strong style="color: #00ff41;">🕐 Timings:</strong> Monday - Saturday, 9:00 AM - 6:00 PM</p>
-            </div>
+                <div class="gallery-item">
+                    💻
+                    <span class="gallery-text">Computer Lab</span>
+                </div>
 
-            <!-- Contact Form -->
-            <div class="contact-form">
+                <div class="gallery-item">
+                    👨‍🏫
+                    <span class="gallery-text">Class Room</span>
+                </div>
+
+                <div class="gallery-item">
+                    🏆
+                    <span class="gallery-text">Student Awards</span>
+                </div>
+
+                <div class="gallery-item">
+                    📚
+                    <span class="gallery-text">Library</span>
+                </div>
+
+                <div class="gallery-item">
+                    🎯
+                    <span class="gallery-text">Practical Session</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ADMISSION SECTION -->
+        <section class="admission" id="admission">
+            <h2 class="section-title">📝 ADMISSION FORM</h2>
+            <div class="admission-form">
                 <form>
-                    <input type="text" placeholder="Your Full Name" required>
-                    <input type="email" placeholder="Your Email Address" required>
-                    <input type="tel" placeholder="Your Phone Number">
-                    <textarea placeholder="Your Message..." required></textarea>
-                    <button type="submit">Send Message</button>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Father's Name *</label>
+                            <input type="text" placeholder="Enter father's name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Email Address *</label>
+                            <input type="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" placeholder="Enter your phone number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Select Course *</label>
+                            <select required>
+                                <option value="">-- Choose Course --</option>
+                                <option value="web">Web Development</option>
+                                <option value="cyber">Cyber Security</option>
+                                <option value="ccna">CCNA Networking</option>
+                                <option value="ai">Artificial Intelligence</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Education Level *</label>
+                            <select required>
+                                <option value="">-- Select --</option>
+                                <option value="matric">Matric</option>
+                                <option value="inter">Intermediate</option>
+                                <option value="bachelor">Bachelor</option>
+                                <option value="master">Master</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>City *</label>
+                            <input type="text" placeholder="Enter your city" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Date of Birth</label>
+                            <input type="date">
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label>Address</label>
+                        <textarea placeholder="Enter your complete address"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Application</button>
                 </form>
             </div>
+        </section>
 
-        </div>
-    </section>
+        <!-- CONTACT SECTION -->
+        <section class="contact" id="contact">
+            <h2 class="section-title">📞 CONTACT US</h2>
+            <div class="contact-container">
+                
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    
+                    <div class="contact-info-item">
+                        <span class="contact-icon">🏫</span>
+                        <span><strong>SARHAD INSTITUTE OF INFORMATION AND TECHNOLOGY</strong></span>
+                    </div>
 
-    <!-- ===== FOOTER ===== -->
-    <footer>
-        <p>© 2024 SARHAD INSTITUTE OF INFORMATION AND TECHNOLOGY - SWABI</p>
-        <p>"MAKE FUTURE WITH US"</p>
-    </footer>
+                    <div class="contact-info-item">
+                        <span class="contact-icon">📍</span>
+                        <span>Swabi, Khyber Pakhtunkhwa, Pakistan</span>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <span class="contact-icon">📞</span>
+                        <span>+92 300 1234567</span>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <span class="contact-icon">📧</span>
+                        <span>info@siit.edu.pk</span>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <span class="contact-icon">🕐</span>
+                        <span>Monday - Saturday, 9:00 AM - 6:00 PM</span>
+                    </div>
+                </div>
+
+                <div class="contact-map">
+                    📍 Map Location
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <p>© 2024 SARHAD INSTITUTE OF INFORMATION AND TECHNOLOGY - SWABI</p>
+            <p>"MAKE FUTURE WITH US"</p>
+        </footer>
+
+    </div>
 
 </body>
 </html>
